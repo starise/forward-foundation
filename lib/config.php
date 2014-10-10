@@ -64,8 +64,9 @@ function forward_display_sidebar() {
 /**
  * $content_width is a global variable used by WordPress for max image upload sizes
  * and media embeds (in pixels).
+ * Foundation automatically resizes the images to fit the container.
  *
- * Example: If the content area is 640px wide, set $content_width = 620; so images and videos will not overflow.
- * Default: 1140px is the default Bootstrap container width.
+ * Note: This option affects on 'large' size, not the 'full' size uploaded image.
+ * Default: 970px is the default Foundation container width.
  */
-if (!isset($content_width)) { $content_width = 1140; }
+if (!isset($content_width)) { $content_width = 970; }
