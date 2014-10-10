@@ -5,7 +5,7 @@
  * Re-create the [gallery] shortcode and use thumbnails styling from Foundation
  * The number of columns must be a factor of 12.
  *
- * @link http://getbootstrap.com/components/#thumbnails
+ * @link http://foundation.zurb.com/docs/components/thumbnails.html
  */
 function forward_gallery($attr) {
   $post = get_post();
