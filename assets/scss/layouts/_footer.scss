@@ -1,0 +1,7 @@
+.content-info { }
+
+
+.content-info {
+  // 'content' container functions as a row
+  @include grid-row();
+}

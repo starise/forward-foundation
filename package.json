@@ -1,0 +1,44 @@
+{
+  "name": "forward",
+  "version": "1.0.0",
+  "homepage": "https://github.com/starise/forward-foundation",
+  "author": "Andrea Brandi <info@andreabrandi.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/starise/forward-foundation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/starise/forward-foundation/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://choosealicense.com/licenses/mit/"
+    }
+  ],
+  "scripts": {
+    "postinstall": "node node_modules/bower/bin/bower install && gulp dev"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "bower": ">=1.3.12",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "0.0.10",
+    "gulp-concat": "^2.4.1",
+    "gulp-grunt": "^0.5.2",
+    "gulp-jshint": "^1.8.5",
+    "gulp-sass": "^1.0.0",
+    "gulp-livereload": "^2.1.0",
+    "gulp-minify-css": "^0.3.10",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-modulizr": "^0.0.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.2.4",
+    "gulp-uglify": "^1.0.1",
+    "gulp-rev": "^1.1.0",
+    "imagemin-pngcrush": "^1.0.0",
+    "jshint-stylish": "^1.0.0"
+  }
+}

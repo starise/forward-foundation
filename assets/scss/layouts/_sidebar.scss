@@ -1,0 +1,9 @@
+.sidebar {
+  // Mobile-first: make 'sidebar' full-width
+  @include grid-column(12);
+ 
+  // On medium-up size, make 'sidebar' custom size
+  @media #{$medium-up} {
+    @include grid-column($sidebar-columns);
+  }
+}

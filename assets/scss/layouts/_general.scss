@@ -1,0 +1,20 @@
+// Content row
+.content {
+  // 'content' container functions as a row
+  @include grid-row();
+}
+
+// Main content area
+.main {
+  // Mobile-first: make 'main' full-width
+  @include grid-column(12);
+ 
+  // On medium-up size, make 'main' custom size
+  @media #{$medium-up} {
+    @include grid-column($main-columns);
+    // If body has 'main-sidebar' class, subtract sidebar size
+    .main-sidebar & {
+      @include grid-column($main-columns - $sidebar-columns);
+    }
+  }
+}
