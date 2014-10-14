@@ -61,10 +61,10 @@ gulp.task('sass', function() {
     .pipe(rename('./main.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(destination.css))
+    .pipe(livereload({ auto: false }))
     .pipe(minifycss())
     .pipe(rename('./main.min.css'))
-    .pipe(gulp.dest(destination.css))
-    .pipe(livereload({ auto: false }));
+    .pipe(gulp.dest(destination.css));
 });
 
 gulp.task('jshint', function() {

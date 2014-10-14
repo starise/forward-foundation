@@ -1,3 +1,6 @@
+### 1.0.2: October 14th, 2014
+* Fix: Livereload now looks to the correct css stylesheet
+
 ### 1.0.1: October 11th, 2014
 * Update: Better README.md
 * Update: WP large images default width to 970px
