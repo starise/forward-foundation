@@ -1,5 +1,5 @@
-### 1.0.2: October 14th, 2014
-* Update to Foundation 5.4.6 (full libsass compatibility)
+### 1.0.2: October 18th, 2014
+* Fix: Comments form alignment
 * Fix: Multiple inclusions of _global.scss when compiling
 * Fix: Livereload now looks to the correct css stylesheet
 

@@ -52,12 +52,12 @@
           </h5>
         <?php else : ?>
           <div class="form-group row">
-            <div class="medium-6 columns">
+            <div class="name">
               <label for="author"><?php _e('Name', 'forward'); if ($req) _e(' <small>required</small>', 'forward'); ?></label>
               <input placeholder="<?php _e('Your Name', 'forward');?>" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" <?php if ($req) echo 'aria-required="true" required pattern="[a-åA-Å][a-åA-Å ]+"'; ?>>
               <?php if ($req) echo '<small class="error">Name is required, and can only contain characters.</small>'; ?>
             </div>
-            <div class="medium-6 columns">
+            <div class="email">
               <label for="email"><?php _e('Email', 'forward'); if ($req) _e(' <small>required</small>', 'forward'); ?></label>
               <input placeholder="<?php _e('name@email.com', 'forward');?>" type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ($req) echo 'aria-required="true" required'; ?>>
               <?php if ($req) echo '<small class="error">An email address is required.</small>'; ?>
