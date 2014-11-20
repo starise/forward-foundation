@@ -3,41 +3,37 @@
  * Scripts and stylesheets
  *
  * Enqueue stylesheets in the following order:
- * 1. /theme/assets/css/main.css
+ * 1. /theme/assets/dist/css/main.css
  *
  * Enqueue scripts in the following order:
- * 1. jquery-2.1.0.min.js via Google CDN
- * 2. /theme/assets/js/vendor/modernizr.min.js
- * 3. /theme/assets/js/scripts.js (in footer)
+ * 1. jquery-2.1.1.min.js via Google CDN
+ * 2. /theme/assets/dist/js/modernizr.min.js
+ * 3. /theme/assets/dist/js/scripts.js
  *
  * Google Analytics is loaded after enqueued scripts if:
  * - An ID has been defined in config.php
  * - You're not logged in as an administrator
  */
-function forward_scripts() {
-  /**
-   * The build task in Grunt renames production assets with a hash
-   * Read the asset names from assets-manifest.json
-   */
+function forward_asset_path($filename_dev, $filename) {
   if (WP_ENV === 'development') {
-    $assets = array(
-      'css'       => '/assets/css/main.css',
-      'js'        => '/assets/js/scripts.js',
-      'modernizr' => '/assets/vendor/modernizr/modernizr.js',
-      'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js'
-    );
-  } else {
-    $get_assets = file_get_contents(get_template_directory() . '/assets/rev-manifest.json');
-    $assets     = json_decode($get_assets, true);
-    $assets     = array(
-      'css'       => '/assets/' . $assets[get_template_directory() . '/assets/css/main.min.css'],
-      'js'       => '/assets/' . $assets[get_template_directory() . '/assets/js/scripts.min.js'],
-      'modernizr' => '/assets/js/vendor/modernizr.min.js',
-      'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js'
-    );
+    return get_template_directory_uri() . '/assets/dist/' . $filename_dev;
   }
 
-  wp_enqueue_style('forward', get_template_directory_uri() . $assets['css'], false, null);
+  $manifest_path = get_template_directory() . '/assets/dist/rev-manifest.json';
+
+  if (file_exists($manifest_path)) {
+    $manifest = json_decode(file_get_contents($manifest_path), true);
+  } else {
+    $manifest = [];
+  }
+
+  if (array_key_exists($filename, $manifest)) {
+    return get_template_directory_uri() . '/assets/dist/' . $manifest[$filename];
+  }
+}
+
+function forward_assets() {
+  wp_enqueue_style('forward_css', forward_asset_path('css/main.css', 'css/main.min.css'), false, null);
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
@@ -46,7 +42,13 @@ function forward_scripts() {
    */
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
     wp_deregister_script('jquery');
-    wp_register_script('jquery', $assets['jquery'], array(), null, false);
+
+    if (WP_ENV === 'development') {
+      wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.js', array(), null, true);
+    } else {
+      wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
+    }
+
     add_filter('script_loader_src', 'forward_jquery_local_fallback', 10, 2);
   }
 
@@ -54,18 +56,18 @@ function forward_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, false);
+  wp_enqueue_script('modernizr', forward_asset_path('../../bower_components/modernizr/modernizr.js', 'js/modernizr.min.js'), array(), null, true);
   wp_enqueue_script('jquery');
-  wp_enqueue_script('forward', get_template_directory_uri() . $assets['js'], array(), null, true);
+  wp_enqueue_script('forward_js', forward_asset_path('js/scripts.js', 'js/scripts.min.js'), array(), null, true);
 }
-add_action('wp_enqueue_scripts', 'forward_scripts', 100);
+add_action('wp_enqueue_scripts', 'forward_assets', 100);
 
 // http://wordpress.stackexchange.com/a/12450
 function forward_jquery_local_fallback($src, $handle = null) {
   static $add_jquery_fallback = false;
 
   if ($add_jquery_fallback) {
-    echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/vendor/jquery/dist/jquery.min.js?2.1.0"><\/script>\')</script>' . "\n";
+    echo '<script>window.jQuery || document.write(\'<script src="' . get_template_directory_uri() . '/assets/dist/js/jquery-2.1.1.min.js"><\/script>\')</script>' . "\n";
     $add_jquery_fallback = false;
   }
 
