@@ -1,3 +1,6 @@
+* Update to Foundation 5.4.7
+* Update to jQuery 2.1.1
+
 ### 1.0.2: October 18th, 2014
 * Update to Foundation 5.4.6 (full libsass compatibility)
 * Fix: Comments form alignment
