@@ -62,6 +62,7 @@ define('WP_ENV', 'development');
 * `gulp dev` — Compile SASS to CSS, concatenate and validate JS
 * `gulp watch` — Compile assets when file changes are made
 * `gulp build` — Create minified assets that are used on non-development environments
+* `gulp images` — Lossless compression of PNG, JPEG, GIF and SVG images
 
 ## Theme activation
 
