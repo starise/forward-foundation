@@ -56,7 +56,7 @@ function forward_assets() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('modernizr', forward_asset_path('../../bower_components/modernizr/modernizr.js', 'js/modernizr.min.js'), array(), null, true);
+  wp_enqueue_script('modernizr', forward_asset_path('../vendor/modernizr/modernizr.js', 'js/modernizr.min.js'), array(), null, true);
   wp_enqueue_script('jquery');
   wp_enqueue_script('forward_js', forward_asset_path('js/scripts.js', 'js/scripts.min.js'), array(), null, true);
 }

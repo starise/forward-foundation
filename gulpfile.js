@@ -77,13 +77,13 @@ gulp.task('copy:fonts', function() {
 });
 
 gulp.task('copy:jquery', function() {
-  return gulp.src(['bower_components/jquery/dist/jquery.min.js'])
+  return gulp.src(['assets/vendor/jquery/dist/jquery.min.js'])
     .pipe($.rename('jquery-2.1.1.min.js'))
     .pipe(gulp.dest('assets/dist/js'));
 });
 
 gulp.task('copy:modernizr', function() {
-  return gulp.src(['bower_components/modernizr/modernizr.js'])
+  return gulp.src(['assets/vendor/modernizr/modernizr.js'])
     .pipe($.uglify())
     .pipe($.rename('modernizr.min.js'))
     .pipe(gulp.dest('assets/dist/js'));
