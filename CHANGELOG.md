@@ -1,5 +1,6 @@
 * Update to Foundation 5.4.7
 * Update to jQuery 2.1.1
+* Update: Use del instead of gulp-clean
 * Assets improvements
 * Improved gulpfile.js
 
