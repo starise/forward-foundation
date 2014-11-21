@@ -1,8 +1,8 @@
 * Update to Foundation 5.4.7
 * Update to jQuery 2.1.1
-* Update: Use del instead of gulp-clean
 * Assets improvements
 * Improved gulpfile.js
+* Fix: Alert-box classes
 
 ### 1.0.2: October 18th, 2014
 * Update to Foundation 5.4.6 (full libsass compatibility)

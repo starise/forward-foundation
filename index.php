@@ -1,7 +1,7 @@
 <?php get_template_part('templates/page', 'header'); ?>
 
 <?php if (!have_posts()) : ?>
-  <div class="alert alert-warning">
+  <div class="alert-box warning">
     <?php _e('Sorry, no results were found.', 'forward'); ?>
   </div>
   <?php get_search_form(); ?>

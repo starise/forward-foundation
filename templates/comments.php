@@ -31,7 +31,7 @@
       </div>
     <?php endif; ?>
   <?php elseif(!comments_open() && !is_page() && post_type_supports(get_post_type(), 'comments')) : ?>
-    <div class="alert alert-warning">
+    <div class="alert-box warning">
       <?php _e('Comments are closed.', 'forward'); ?>
     </div>
   <?php endif; ?>
