@@ -1,3 +1,4 @@
+### 2.0.0: November 22nd, 2014
 * Update to Foundation 5.4.7
 * Update to jQuery 2.1.1
 * Assets improvements
