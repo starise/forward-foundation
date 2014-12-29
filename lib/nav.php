@@ -85,10 +85,6 @@ function forward_nav_menu_args($args = '') {
     $forward_nav_menu_args['depth'] = 2;
   }
 
-  if (!$args['walker']) {
-    $forward_nav_menu_args['walker'] = new Forward_Nav_Walker();
-  }
-
   return array_merge($args, $forward_nav_menu_args);
 }
 add_filter('wp_nav_menu_args', 'forward_nav_menu_args');
