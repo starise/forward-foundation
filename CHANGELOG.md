@@ -1,3 +1,7 @@
+* Reorganization of asset structure
+* Use wiredep for sass and less injection
+* Use csswring and autoprefixer via postcss
+
 ### 2.0.0: November 22nd, 2014
 * Update to Foundation 5.4.7
 * Update to jQuery 2.1.1
