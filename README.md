@@ -1,4 +1,5 @@
 # [Forward Foundation](https://github.com/starise/forward-foundation)
+[![Build Status](https://travis-ci.org/starise/roots.svg)](https://travis-ci.org/starise/forward-foundation)
 [![devDependency Status](https://david-dm.org/starise/forward-foundation/dev-status.svg)](https://david-dm.org/starise/forward-foundation#info=devDependencies)
 
 Forward Foundation is a WordPress starter theme based on [HTML5 Boilerplate](http://html5boilerplate.com/) & [Foundation](http://foundation.zurb.com/). The project starts as a fork of [Roots](https://github.com/roots/roots).
