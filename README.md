@@ -9,14 +9,13 @@ Forward Foundation is a WordPress starter theme based on [HTML5 Boilerplate](htt
 
 ## Features
 
-* [Gulp](http://gulpjs.com/) for compiling SASS to CSS, checking for JS errors, live reloading, concatenating and minifying files, versioning assets, and generating lean Modernizr builds
+* [Gulp](http://gulpjs.com/) for compiling Sass and Less, checking for JavaScript errors, live reloading, concatenating and minifying files and versioning assets
 * [Bower](http://bower.io/) for front-end package management
 * [HTML5 Boilerplate](http://html5boilerplate.com/)
   * The latest [jQuery](http://jquery.com/) via Google CDN, with a local fallback
-  * The latest [Modernizr](http://modernizr.com/) build for feature detection, with lean builds with Gulp
+  * The latest [Modernizr](http://modernizr.com/) build for feature detection
   * An optimized Google Analytics snippet
 * [Foundation](http://foundation.zurb.com/)
-* Organized file and template structure
 * ARIA roles and microformats
 * [Theme activation](http://roots.io/roots-101/#theme-activation)
 * [Theme wrapper](http://roots.io/an-introduction-to-the-roots-theme-wrapper/)
@@ -44,13 +43,13 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 nvm install 0.10
 ```
 
-Install `gulp` globally with:
+Install `gulp` and `bower` globally with:
 
 ```
-npm install -g gulp
+npm install -g gulp bower
 ```
 
-Navigate to the theme directory, then run `npm install`. npm will look at `package.json` and automatically install the necessary dependencies. It will also automatically run `bower install`, which installs front-end packages defined in `bower.json`.
+Navigate to the theme directory, then run `npm install`. npm will look at `package.json` and automatically install the necessary dependencies. Then you can run `bower install`, which installs front-end packages defined in `bower.json`.
 
 If you don't use [Bedrock](https://github.com/roots/bedrock), you may need to add the following to your `wp-config.php` on your development installation:
 
@@ -60,10 +59,9 @@ define('WP_ENV', 'development');
 
 ### Available Gulp commands
 
-* `gulp dev` — Compile SASS to CSS, concatenate and validate JS
+* `gulp` — Compile and optimize the files in your assets directory
 * `gulp watch` — Compile assets when file changes are made
-* `gulp build` — Create minified assets that are used on non-development environments
-* `gulp images` — Lossless compression of PNG, JPEG, GIF and SVG images
+* `gulp --tasks` — Lists all the available tasks and what they do
 
 ## Theme activation
 
