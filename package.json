@@ -16,7 +16,10 @@
       "url": "http://choosealicense.com/licenses/mit/"
     }
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "bower install && gulp",
+    "jshint": "gulp jshint"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
