@@ -1,3 +1,5 @@
+* Switch to Wordpress 4.1 titles system
+* title-tag & get_the_archive_title support
 * Reorganization of asset structure
 * Use wiredep for sass and less injection
 * Use csswring and autoprefixer via postcss

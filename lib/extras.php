@@ -9,21 +9,6 @@ add_filter('excerpt_more', 'forward_excerpt_more');
 
 
 /**
- * Manage output of wp_title()
- */
-function forward_wp_title($title) {
-  if (is_feed()) {
-    return $title;
-  }
-
-  $title .= get_bloginfo('name');
-
-  return $title;
-}
-add_filter('wp_title', 'forward_wp_title', 10);
-
-
-/**
  * Fix Wordpress Administration Bar overlapping
  */
 function admin_bar_fix() {
@@ -67,7 +52,7 @@ function livereload() {
 }
 
 // Runs the livereload function if domain contains .dev — edit to fit your own needs
-$host = $_SERVER['HTTP_HOST']; 
+$host = $_SERVER['HTTP_HOST'];
 if (strpos($host,'.dev') !== false) {
     add_action('wp_enqueue_scripts', 'livereload');
 }
