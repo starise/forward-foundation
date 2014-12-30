@@ -25,8 +25,8 @@ function forward_theme_activation_options_add_page() {
 
   if (!$forward_activation_options) {
     $theme_page = add_theme_page(
-      __('Theme Activation', 'forward'),
-      __('Theme Activation', 'forward'),
+      __('Theme Activation', LANG_DOMAIN),
+      __('Theme Activation', LANG_DOMAIN),
       'edit_theme_options',
       'theme_activation_options',
       'forward_theme_activation_options_render_page'
@@ -47,60 +47,60 @@ function forward_get_theme_activation_options() {
 
 function forward_theme_activation_options_render_page() { ?>
   <div class="wrap">
-    <h2><?php printf(__('%s Theme Activation', 'forward'), wp_get_theme()); ?></h2>
+    <h2><?php printf(__('%s Theme Activation', LANG_DOMAIN), wp_get_theme()); ?></h2>
     <div class="update-nag">
-      <?php _e('These settings are optional and should usually be used only on a fresh installation', 'forward'); ?>
+      <?php _e('These settings are optional and should usually be used only on a fresh installation', LANG_DOMAIN); ?>
     </div>
     <?php settings_errors(); ?>
 
     <form method="post" action="options.php">
       <?php settings_fields('forward_activation_options'); ?>
       <table class="form-table">
-        <tr valign="top"><th scope="row"><?php _e('Create static front page?', 'forward'); ?></th>
+        <tr valign="top"><th scope="row"><?php _e('Create static front page?', LANG_DOMAIN); ?></th>
           <td>
             <fieldset>
-              <legend class="screen-reader-text"><span><?php _e('Create static front page?', 'forward'); ?></span></legend>
+              <legend class="screen-reader-text"><span><?php _e('Create static front page?', LANG_DOMAIN); ?></span></legend>
               <select name="forward_theme_activation_options[create_front_page]" id="create_front_page">
-                <option selected="selected" value="true"><?php echo _e('Yes', 'forward'); ?></option>
-                <option value="false"><?php echo _e('No', 'forward'); ?></option>
+                <option selected="selected" value="true"><?php echo _e('Yes', LANG_DOMAIN); ?></option>
+                <option value="false"><?php echo _e('No', LANG_DOMAIN); ?></option>
               </select>
-              <p class="description"><?php printf(__('Create a page called Home and set it to be the static front page', 'forward')); ?></p>
+              <p class="description"><?php printf(__('Create a page called Home and set it to be the static front page', LANG_DOMAIN)); ?></p>
             </fieldset>
           </td>
         </tr>
-        <tr valign="top"><th scope="row"><?php _e('Change permalink structure?', 'forward'); ?></th>
+        <tr valign="top"><th scope="row"><?php _e('Change permalink structure?', LANG_DOMAIN); ?></th>
           <td>
             <fieldset>
-              <legend class="screen-reader-text"><span><?php _e('Update permalink structure?', 'forward'); ?></span></legend>
+              <legend class="screen-reader-text"><span><?php _e('Update permalink structure?', LANG_DOMAIN); ?></span></legend>
               <select name="forward_theme_activation_options[change_permalink_structure]" id="change_permalink_structure">
-                <option selected="selected" value="true"><?php echo _e('Yes', 'forward'); ?></option>
-                <option value="false"><?php echo _e('No', 'forward'); ?></option>
+                <option selected="selected" value="true"><?php echo _e('Yes', LANG_DOMAIN); ?></option>
+                <option value="false"><?php echo _e('No', LANG_DOMAIN); ?></option>
               </select>
-              <p class="description"><?php printf(__('Change permalink structure to /&#37;postname&#37;/', 'forward')); ?></p>
+              <p class="description"><?php printf(__('Change permalink structure to /&#37;postname&#37;/', LANG_DOMAIN)); ?></p>
             </fieldset>
           </td>
         </tr>
-        <tr valign="top"><th scope="row"><?php _e('Create navigation menu?', 'forward'); ?></th>
+        <tr valign="top"><th scope="row"><?php _e('Create navigation menu?', LANG_DOMAIN); ?></th>
           <td>
             <fieldset>
-              <legend class="screen-reader-text"><span><?php _e('Create navigation menu?', 'forward'); ?></span></legend>
+              <legend class="screen-reader-text"><span><?php _e('Create navigation menu?', LANG_DOMAIN); ?></span></legend>
               <select name="forward_theme_activation_options[create_navigation_menus]" id="create_navigation_menus">
-                <option selected="selected" value="true"><?php echo _e('Yes', 'forward'); ?></option>
-                <option value="false"><?php echo _e('No', 'forward'); ?></option>
+                <option selected="selected" value="true"><?php echo _e('Yes', LANG_DOMAIN); ?></option>
+                <option value="false"><?php echo _e('No', LANG_DOMAIN); ?></option>
               </select>
-              <p class="description"><?php printf(__('Create the Primary Navigation menu and set the location', 'forward')); ?></p>
+              <p class="description"><?php printf(__('Create the Primary Navigation menu and set the location', LANG_DOMAIN)); ?></p>
             </fieldset>
           </td>
         </tr>
-        <tr valign="top"><th scope="row"><?php _e('Add pages to menu?', 'forward'); ?></th>
+        <tr valign="top"><th scope="row"><?php _e('Add pages to menu?', LANG_DOMAIN); ?></th>
           <td>
             <fieldset>
-              <legend class="screen-reader-text"><span><?php _e('Add pages to menu?', 'forward'); ?></span></legend>
+              <legend class="screen-reader-text"><span><?php _e('Add pages to menu?', LANG_DOMAIN); ?></span></legend>
               <select name="forward_theme_activation_options[add_pages_to_primary_navigation]" id="add_pages_to_primary_navigation">
-                <option selected="selected" value="true"><?php echo _e('Yes', 'forward'); ?></option>
-                <option value="false"><?php echo _e('No', 'forward'); ?></option>
+                <option selected="selected" value="true"><?php echo _e('Yes', LANG_DOMAIN); ?></option>
+                <option value="false"><?php echo _e('No', LANG_DOMAIN); ?></option>
               </select>
-              <p class="description"><?php printf(__('Add all current published pages to the Primary Navigation', 'forward')); ?></p>
+              <p class="description"><?php printf(__('Add all current published pages to the Primary Navigation', LANG_DOMAIN)); ?></p>
             </fieldset>
           </td>
         </tr>
@@ -123,7 +123,7 @@ function forward_theme_activation_action() {
   if ($forward_theme_activation_options['create_front_page'] === 'true') {
     $forward_theme_activation_options['create_front_page'] = false;
 
-    $default_pages = array(__('Home', 'forward'));
+    $default_pages = array(__('Home', LANG_DOMAIN));
     $existing_pages = get_pages();
     $temp = array();
 
@@ -144,7 +144,7 @@ function forward_theme_activation_action() {
       $result = wp_insert_post($add_default_pages);
     }
 
-    $home = get_page_by_title(__('Home', 'forward'));
+    $home = get_page_by_title(__('Home', LANG_DOMAIN));
     update_option('show_on_front', 'page');
     update_option('page_on_front', $home->ID);
 
@@ -170,10 +170,10 @@ function forward_theme_activation_action() {
 
     $forward_nav_theme_mod = false;
 
-    $primary_nav = wp_get_nav_menu_object(__('Primary Navigation', 'forward'));
+    $primary_nav = wp_get_nav_menu_object(__('Primary Navigation', LANG_DOMAIN));
 
     if (!$primary_nav) {
-      $primary_nav_id = wp_create_nav_menu(__('Primary Navigation', 'forward'), array('slug' => 'primary_navigation'));
+      $primary_nav_id = wp_create_nav_menu(__('Primary Navigation', LANG_DOMAIN), array('slug' => 'primary_navigation'));
       $forward_nav_theme_mod['primary_navigation'] = $primary_nav_id;
     } else {
       $forward_nav_theme_mod['primary_navigation'] = $primary_nav->term_id;
@@ -187,7 +187,7 @@ function forward_theme_activation_action() {
   if ($forward_theme_activation_options['add_pages_to_primary_navigation'] === 'true') {
     $forward_theme_activation_options['add_pages_to_primary_navigation'] = false;
 
-    $primary_nav = wp_get_nav_menu_object(__('Primary Navigation', 'forward'));
+    $primary_nav = wp_get_nav_menu_object(__('Primary Navigation', LANG_DOMAIN));
     $primary_nav_term_id = (int) $primary_nav->term_id;
     $menu_items= wp_get_nav_menu_items($primary_nav_term_id);
 

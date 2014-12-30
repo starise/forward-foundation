@@ -19,8 +19,8 @@ function forward_numbered_pagination() {
     'current' => $current,
     'show_all' => false,
     'prev_next' => true,
-    'prev_text' => __('&laquo; Previous', 'forward'),
-    'next_text' => __('Next &raquo;', 'forward'),
+    'prev_text' => __('&laquo; Previous', LANG_DOMAIN),
+    'next_text' => __('Next &raquo;', LANG_DOMAIN),
     'end_size' => 2,
     'mid_size' => 3,
     'add_args' => false,
@@ -63,7 +63,7 @@ function forward_numbered_pagination() {
         $page_links[] = "<li><a class='page-numbers' href='" . esc_url( $link ) . "'>$n_display</a></li>";
         $dots = true;
       elseif ( $dots && !$show_all ) :
-        $page_links[] = '<li><a class="page-numbers dots">' . __('&hellip;', 'forward') . '</a></li>';
+        $page_links[] = '<li><a class="page-numbers dots">' . __('&hellip;', LANG_DOMAIN) . '</a></li>';
         $dots = false;
       endif;
     endif;

@@ -5,7 +5,7 @@
 function forward_setup() {
   // Make theme available for translation
   // Community translations can be found at https://github.com/roots/roots-translations
-  load_theme_textdomain('forward', get_template_directory() . '/lang');
+  load_theme_textdomain(LANG_DOMAIN, get_template_directory() . '/lang');
 
   // Enable plugins to manage the document title
   // http://codex.wordpress.org/Function_Reference/add_theme_support#Title_Tag
@@ -14,7 +14,7 @@ function forward_setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus(array(
-    'primary_navigation' => __('Primary Navigation', 'forward')
+    'primary_navigation' => __('Primary Navigation', LANG_DOMAIN)
   ));
 
   // Add post thumbnails
@@ -32,7 +32,7 @@ function forward_setup() {
   add_theme_support('html5', array('caption'));
 
   // Tell the TinyMCE editor to use a custom stylesheet
-  add_editor_style('/dist/css/editor-style.css');
+  add_editor_style('/dist/styles/editor-style.css');
 }
 add_action('after_setup_theme', 'forward_setup');
 
@@ -41,7 +41,7 @@ add_action('after_setup_theme', 'forward_setup');
  */
 function forward_widgets_init() {
   register_sidebar(array(
-    'name'          => __('Primary', 'forward'),
+    'name'          => __('Primary', LANG_DOMAIN),
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
@@ -50,7 +50,7 @@ function forward_widgets_init() {
   ));
 
   register_sidebar(array(
-    'name'          => __('Footer', 'forward'),
+    'name'          => __('Footer', LANG_DOMAIN),
     'id'            => 'sidebar-footer',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',

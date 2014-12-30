@@ -27,7 +27,7 @@ $forward_includes = array(
 
 foreach ($forward_includes as $file) {
   if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'forward'), $file), E_USER_ERROR);
+    trigger_error(sprintf(__('Error locating %s for inclusion', LANG_DOMAIN), $file), E_USER_ERROR);
   }
 
   require_once $filepath;

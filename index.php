@@ -2,7 +2,7 @@
 
 <?php if (!have_posts()) : ?>
   <div class="alert-box warning">
-    <?php _e('Sorry, no results were found.', 'forward'); ?>
+    <?php _e('Sorry, no results were found.', LANG_DOMAIN); ?>
   </div>
   <?php get_search_form(); ?>
 <?php endif; ?>

@@ -1,3 +1,4 @@
+* Custom Text Domain name for translations
 * Switch to Wordpress 4.1 titles system
 * title-tag & get_the_archive_title support
 * Reorganization of asset structure

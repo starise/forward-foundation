@@ -3,7 +3,7 @@
  * Clean up the_excerpt()
  */
 function forward_excerpt_more($more) {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'forward') . '</a>';
+  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', LANG_DOMAIN) . '</a>';
 }
 add_filter('excerpt_more', 'forward_excerpt_more');
 
